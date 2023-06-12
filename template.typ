@@ -65,16 +65,23 @@
       ..authors.map(author => align(center)[
         #if author.keys().contains("orcid") {
           link("http://orcid.org/" + author.orcid)[
-            #grid(columns: (auto, auto),
-              [*#author.name*],
-              [
-                #pad(left: 4pt, top: -4pt, image("orcid.svg", width: 8pt))
-              ]
+            #pad(bottom: -8pt,
+              grid(
+                columns: (8pt, auto, 8pt),
+                rows: 10pt,
+                [],
+                [*#author.name*],
+                [
+                  #pad(left: 4pt, top: -4pt, image("orcid.svg", width: 8pt))
+                ]
+              )
             )
           ]
         } else {
-          grid(columns: (auto),
-              [*#author.name*],
+          grid(
+            columns: (auto),
+            rows: 2pt,
+            [*#author.name*],
           )
         }
         #author.email \
