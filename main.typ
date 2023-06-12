@@ -1,7 +1,6 @@
 #import "template.typ": *
 
-// Take a look at the file `template.typ` in the file panel
-// to customize this template and discover how it works.
+// You can customize the template by changing the template.typ file.
 #show: project.with(
   title: "ArXiv Typst Template",
   authors: (
@@ -17,10 +16,6 @@
 #set cite(style: "chicago-author-date")
 #show link: underline
 
-// We generated the example code below so you can see how
-// your document will look. Go ahead and replace it with
-// your own content!
-
 = Introduction
 #lorem(60)
 
@@ -32,7 +27,7 @@
 
 === Heading: third level
 
-==== Paragraph 
+==== Paragraph
 #lorem(20)
 
 #lorem(20)
@@ -40,9 +35,9 @@
 = Math
 
 *Inline:* Let $a$, $b$, and $c$ be the side
-lengths of right-angled triangle. Then, we know that: $a^2 + b^2 = c^2$ 
+lengths of right-angled triangle. Then, we know that: $a^2 + b^2 = c^2$
 
-*Block without numbering:* 
+*Block without numbering:*
 
 #math.equation(block: true, numbering: none, [
     $
@@ -51,7 +46,7 @@ lengths of right-angled triangle. Then, we know that: $a^2 + b^2 = c^2$
   ]
 )
 
-*Block with numbering:* 
+*Block with numbering:*
 
 As shown in @equation.
 
@@ -65,7 +60,7 @@ $ <equation>
 
 = Citation
 
-You can use citations by using the `#cite` function with the key for the reference and adding a bibliography. Typst supports BibLateX and Hayagriva. 
+You can use citations by using the `#cite` function with the key for the reference and adding a bibliography. Typst supports BibLateX and Hayagriva.
 
 ```typst
 #bibliography("bibliography.bib")
@@ -88,10 +83,10 @@ Single citation #cite("Vaswani2017AttentionIA"). Multiple citation #cite("Vaswan
     stroke: 0.5pt,
     inset: 5pt,
     [header 1], [header 2],
-    [cell 1], [cell 2], 
+    [cell 1], [cell 2],
     [cell 3], [cell 4],
   ),
-  caption: [#lorem(5)] 
+  caption: [#lorem(5)]
 ) <table>
 
 #figure(
@@ -133,10 +128,11 @@ Single citation #cite("Vaswani2017AttentionIA"). Multiple citation #cite("Vaswan
 // Add bibliography and create Bibiliography section
 #bibliography("bibliography.bib")
 
+// Create appendix section
 #show: appendices
 =
 
 == Appendix section
 
 #lorem(100)
- 
+

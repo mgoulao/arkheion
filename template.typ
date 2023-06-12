@@ -1,6 +1,5 @@
 // The project function defines how your document looks.
 // It takes your content and some metadata and formats it.
-// Go ahead and customize it to your liking!
 #let project(
   title: "",
   abstract: [],
@@ -66,16 +65,16 @@
       ..authors.map(author => align(center)[
         #if author.keys().contains("orcid") {
           link("http://orcid.org/" + author.orcid)[
-            #grid(columns: (auto, auto), 
-              [*#author.name*], 
+            #grid(columns: (auto, auto),
+              [*#author.name*],
               [
                 #pad(left: 4pt, top: -4pt, image("orcid.svg", width: 8pt))
               ]
             )
           ]
         } else {
-          grid(columns: (auto), 
-              [*#author.name*], 
+          grid(columns: (auto),
+              [*#author.name*],
           )
         }
         #author.email \
@@ -97,34 +96,34 @@
         numbering: none,
         text(0.85em, smallcaps[Abstract]),
       )
-      #set par(justify: true) 
+      #set par(justify: true)
       #set text(hyphenate: false)
-      
+
       #abstract
     ],
   )
 
   // Keywords
-  if keywords.len() > 0 {  
+  if keywords.len() > 0 {
       [*_Keywords_* #h(0.3cm)] + keywords.map(str).join(" · ")
   }
   // Main body.
   set par(justify: true)
   set text(hyphenate: false)
-  
+
   body
 }
 
 #let appendices(body) = {
   counter(heading).update(0)
   counter("appendices").update(1)
-  
+
   set heading(
     numbering: (..nums) => {
       let vals = nums.pos()
       let value = "ABCDEFGHIJ".at(vals.at(0) - 1)
       if vals.len() == 1 {
-        return "APPENDIX " + value 
+        return "APPENDIX " + value
       }
       else {
         return value + "." + nums.pos().slice(1).map(str).join(".")
