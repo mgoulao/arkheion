@@ -1,6 +1,4 @@
-// The project function defines how your document looks.
-// It takes your content and some metadata and formats it.
-#let project(
+#let arxivify(
   title: "",
   abstract: [],
   keywords: (),
@@ -121,7 +119,7 @@
   body
 }
 
-#let appendices(body) = {
+#let arxivify_appendices(body) = {
   counter(heading).update(0)
   counter("appendices").update(1)
 

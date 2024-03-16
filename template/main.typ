@@ -1,7 +1,6 @@
-#import "template.typ": *
+#import "@preview/arxivify:0.1.0": arxivify, arxivify_appendices
 
-// You can customize the template by changing the template.typ file.
-#show: project.with(
+#show: arxivify.with(
   title: "ArXiv Typst Template",
   authors: (
     (name: "Author 1", email: "user@domain.com", affiliation: "Company", orcid: "0000-0000-0000-0000"),
@@ -129,7 +128,7 @@ Single citation #cite("Vaswani2017AttentionIA"). Multiple citation #cite("Vaswan
 #bibliography("bibliography.bib")
 
 // Create appendix section
-#show: appendices
+#show: arxivify_appendices
 =
 
 == Appendix section
