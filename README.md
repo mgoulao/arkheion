@@ -2,7 +2,7 @@
 
 A Typst template based on popular LateX template used in NeurIPS, arXiv and bio-arXiv. Inspired by [arxiv-style](https://github.com/kourgeorge/arxiv-style)
 
-![Example](template/example.png)
+![Example](example.png)
 
 ## Usage
 
