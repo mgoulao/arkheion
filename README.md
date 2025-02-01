@@ -41,6 +41,26 @@ A Typst template based on popular LateX template used in arXiv and bio-arXiv. In
 
 ```
 
+## API
+
+### `arkheion.with`
+
+- `title: String` - Title of the document.
+- `authors: List<Author>` - List of authors.
+```
+Author: {
+  name: String,
+  email: String,
+  affiliation: String,
+  orcid: String
+}
+```
+- `custom_authors: Content` - Custom authors content that overrides the default authors content.
+Note: The `authors` is still required to be passed in order to generate the metadata, however, only the `name` field is required.
+- `abstract: Content` - Abstract of the document.
+- `keywords: List<String>` - List of keywords.
+- `date: String` - Date of the document.
+
 ## License
 The MIT License (MIT)
 
