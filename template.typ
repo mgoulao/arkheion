@@ -1,6 +1,6 @@
 #let arkheion(
   title: "",
-  abstract: [],
+  abstract: none,
   keywords: (),
   authors: (),
   custom_authors: none,
@@ -96,7 +96,7 @@
   align(center)[#date]
 
   // Abstract.
-  if abstract == none {
+  if abstract != none {
     pad(
       x: 3em,
       top: 1em,
