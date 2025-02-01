@@ -3,6 +3,7 @@
   abstract: [],
   keywords: (),
   authors: (),
+  custom_authors: none,
   date: none,
   body,
 ) = {
@@ -54,39 +55,43 @@
   line(length: 100%, stroke: 2pt)
 
   // Author information.
-  pad(
-    top: 0.5em,
-    x: 2em,
-    grid(
-      columns: (1fr,) * calc.min(3, authors.len()),
-      gutter: 1em,
-      ..authors.map(author => align(center)[
-        #if author.keys().contains("orcid") {
-          link("http://orcid.org/" + author.orcid)[
-            #pad(bottom: -8pt,
-              grid(
-                columns: (8pt, auto, 8pt),
-                rows: 10pt,
-                [],
-                [*#author.name*],
-                [
-                  #pad(left: 4pt, top: -4pt, image("orcid.svg", width: 8pt))
-                ]
+  if custom_authors != none {
+    custom_authors
+  } else {
+    pad(
+      top: 0.5em,
+      x: 2em,
+      grid(
+        columns: (1fr,) * calc.min(3, authors.len()),
+        gutter: 1em,
+        ..authors.map(author => align(center)[
+          #if author.keys().contains("orcid") {
+            link("http://orcid.org/" + author.orcid)[
+              #pad(bottom: -8pt,
+                grid(
+                  columns: (8pt, auto, 8pt),
+                  rows: 10pt,
+                  [],
+                  [*#author.name*],
+                  [
+                    #pad(left: 4pt, top: -4pt, image("orcid.svg", width: 8pt))
+                  ]
+                )
               )
+            ]
+          } else {
+            grid(
+              columns: (auto),
+              rows: 2pt,
+              [*#author.name*],
             )
-          ]
-        } else {
-          grid(
-            columns: (auto),
-            rows: 2pt,
-            [*#author.name*],
-          )
-        }
-        #author.email \
-        #author.affiliation
-      ]),
-    ),
-  )
+          }
+          #author.email \
+          #author.affiliation
+        ]),
+      ),
+    )
+  }
 
   align(center)[#date]
 
