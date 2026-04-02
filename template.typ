@@ -110,7 +110,7 @@
         #set par(justify: true)
         #set text(hyphenate: false)
 
-        #abstract
+        #align(left, abstract)
       ],
     )
   }
