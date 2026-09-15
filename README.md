@@ -29,6 +29,12 @@ A Typst template based on popular LateX template used in arXiv and bio-arXiv. In
 )
 ```
 
+**Table of contents**
+
+```
+#outline()
+```
+
 **Appendix**
 
 ```

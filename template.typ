@@ -42,6 +42,21 @@
     }
   }
 
+  // Table of contents, in the style of the LaTeX article class: first level
+  // entries in bold without dot leaders, deeper levels indented and dotted.
+  set outline(indent: 1.5em)
+  show outline.entry.where(level: 1): it => if it.element.func() == heading {
+    block(
+      above: 1.4em,
+      strong(link(
+        it.element.location(),
+        it.indented(it.prefix(), it.body() + h(1fr) + it.page()),
+      )),
+    )
+  } else {
+    it
+  }
+
   line(length: 100%, stroke: 2pt)
   // Title row.
   pad(
