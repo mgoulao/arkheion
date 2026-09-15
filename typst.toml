@@ -5,6 +5,7 @@ entrypoint = "template.typ"
 authors = ["Manuel Goulão"]
 license = "MIT"
 description = "A simple template reproducing popular arXiv templates."
+compiler = "0.13.0"
 repository = "https://github.com/mgoulao/arkheion"
 keywords = ["arXiv", "NeurIPS", "computer science", "machine learning", "deep learning"]
 categories = ["paper"]
