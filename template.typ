@@ -130,17 +130,21 @@
   counter(heading).update(0)
   counter("appendices").update(1)
 
+  // Number appendices "Appendix A", "A.1", ... and reference them as
+  // "Appendix A", "Appendix A.1", ...
   set heading(
     numbering: (..nums) => {
       let vals = nums.pos()
-      let value = "ABCDEFGHIJ".at(vals.at(0) - 1)
       if vals.len() == 1 {
-        return "APPENDIX " + value
+        return "Appendix " + numbering("A", ..vals)
       }
       else {
-        return value + "." + nums.pos().slice(1).map(str).join(".")
+        return numbering("A.1", ..vals)
       }
-    }
-  );
+    },
+    supplement: [Appendix],
+  )
+  // Level-1 numbers already read "Appendix A": don't repeat the supplement.
+  show heading.where(level: 1): set heading(supplement: none)
   [#pagebreak() #body]
 }
