@@ -1,4 +1,4 @@
-#import "@preview/arkheion:0.1.0": arkheion, arkheion-appendices
+#import "@preview/arkheion:0.1.3": arkheion, arkheion-appendices
 
 #show: arkheion.with(
   title: "Typst Template for arXiv",
