@@ -29,6 +29,17 @@ A Typst template based on popular LateX template used in arXiv and bio-arXiv. In
 )
 ```
 
+**Table of contents**
+
+Place `#outline()` after the `#show: arkheion.with(...)` rule. Appendices are listed as `A`, `A.1`, ... alongside the main sections.
+
+```
+#outline()
+
+= Introduction
+#lorem(60)
+```
+
 **Appendix**
 
 ```
