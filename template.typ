@@ -130,17 +130,15 @@
   counter(heading).update(0)
   counter("appendices").update(1)
 
+  // Number appendices as "A", "A.1", ... so that outline entries stay aligned
+  // with the main sections. The "APPENDIX" label is only added to the heading.
   set heading(
-    numbering: (..nums) => {
-      let vals = nums.pos()
-      let value = "ABCDEFGHIJ".at(vals.at(0) - 1)
-      if vals.len() == 1 {
-        return "APPENDIX " + value
-      }
-      else {
-        return value + "." + nums.pos().slice(1).map(str).join(".")
-      }
-    }
-  );
+    numbering: "A.1",
+    supplement: it => if it.depth == 1 [Appendix] else [Section],
+  )
+  show heading.where(level: 1): it => pad(
+    bottom: 10pt,
+    block[Appendix #counter(heading).display(it.numbering) #it.body],
+  )
   [#pagebreak() #body]
 }
